@@ -18,7 +18,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'core'
+    'core',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
