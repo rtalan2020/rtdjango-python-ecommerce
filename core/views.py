@@ -1,5 +1,4 @@
 from django.contrib import messages
-from .models import Item	
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.shortcuts import redirect
@@ -12,9 +11,6 @@ def products(request):
     }
     return render(request, "products-page.html", context)
 
-
-
-
 def checkout(request):
     return render(request, "checkout-page.html")
 
@@ -22,11 +18,13 @@ def checkout(request):
 def home(request):
     context = { 'items':Item.objects.all()}
     return render(request, "home-page.html", context)
+    
 
 
 class HomeView(ListView):
     model = Item
     template_name = "home.html"      
+    paginate_by = 1
 
 class ItemDetailView(DetailView):
     model = Item
